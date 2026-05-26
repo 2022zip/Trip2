@@ -1,0 +1,46 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+}
+
+.content {
+  padding: $spacing-lg $page-padding;
+}
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.row {
+  padding: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx solid $color-divider;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:active {
+    background: $color-bg-hover;
+  }
+}
+
+.name {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.arrow {
+  font-size: 40rpx;
+  color: $color-text-tertiary;
+  line-height: 1;
+}
+

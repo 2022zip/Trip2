@@ -1,0 +1,54 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+}
+
+.content {
+  padding: $spacing-lg $page-padding $spacing-xl;
+}
+
+.tip {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-bottom: $spacing-lg;
+}
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.item {
+  padding: $spacing-lg;
+  border-top: 2rpx solid $color-divider;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.line1 {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  @include text-ellipsis-multi(2);
+}
+
+.line2 {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  @include text-ellipsis-multi(2);
+}
+
+.empty {
+  padding: 160rpx 0;
+  text-align: center;
+  color: $color-text-tertiary;
+  font-size: $font-size-md;
+}
+

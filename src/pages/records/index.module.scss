@@ -1,0 +1,60 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0f5ff 0%, $color-bg-page 100%);
+}
+
+.content {
+  padding: $spacing-lg $page-padding $spacing-xl;
+}
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.item {
+  padding: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx solid $color-divider;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:active {
+    background: $color-bg-hover;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  max-width: 560rpx;
+}
+
+.title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.desc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+}
+
+.arrow {
+  font-size: 40rpx;
+  color: $color-text-tertiary;
+  line-height: 1;
+}
+

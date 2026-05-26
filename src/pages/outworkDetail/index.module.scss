@@ -1,0 +1,103 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+}
+
+.content {
+  padding: $spacing-lg $page-padding $spacing-xl;
+}
+
+.summaryCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: 24rpx 28rpx;
+  margin-bottom: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.summaryMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+}
+
+.summaryTitle {
+  flex-shrink: 0;
+  font-size: 34rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1.25;
+}
+
+.rangeText {
+  flex: 1;
+  min-width: 0;
+  font-size: 24rpx;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.filterBtn {
+  flex-shrink: 0;
+  font-size: 28rpx;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.groupCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-lg;
+  overflow: hidden;
+}
+
+.groupHeader {
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-page;
+  border-bottom: 2rpx solid $color-divider;
+}
+
+.groupDate {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.item {
+  padding: $spacing-lg;
+  border-top: 2rpx solid $color-divider;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.itemLine1 {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  @include text-ellipsis-multi(2);
+}
+
+.itemLine2 {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  @include text-ellipsis-multi(2);
+}
+
+.empty {
+  padding: 160rpx 0;
+  text-align: center;
+  color: $color-text-tertiary;
+  font-size: $font-size-md;
+}

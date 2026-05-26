@@ -1,0 +1,128 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0f5ff 0%, $color-bg-page 100%);
+}
+
+.content {
+  padding: $spacing-lg $page-padding $spacing-xl;
+}
+
+.userRow {
+  position: relative;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.userTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10rpx;
+}
+
+.roleText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  font-weight: $font-weight-medium;
+}
+
+.userName {
+  font-size: 36rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.actions {
+  margin-top: $spacing-lg;
+  display: flex;
+  gap: $spacing-md;
+}
+
+.actionBtn {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  border: 2rpx solid $color-border;
+  background: $color-bg-card;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.actionPrimary {
+  border: none;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+}
+
+.actionText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.actionTextPrimary {
+  color: $color-text-white;
+}
+
+.clockWrap {
+  margin-top: 56rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.clockCircle {
+  width: 440rpx;
+  height: 440rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(180deg, #2f7cff 0%, $color-primary 100%);
+  box-shadow: 0 24rpx 56rpx rgba(22, 93, 255, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.95;
+  }
+}
+
+.clockTitle {
+  font-size: 48rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+  margin-bottom: 12rpx;
+}
+
+.clockTime {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 2rpx;
+}
+
+.photoArea {
+  margin-top: 64rpx;
+  height: 520rpx;
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+  box-shadow: $shadow-card;
+  border: 2rpx dashed $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoText {
+  font-size: 56rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}

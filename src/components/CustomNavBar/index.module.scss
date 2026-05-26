@@ -1,0 +1,64 @@
+@use '@/styles/variables.scss' as *;
+
+.root {
+  width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #0b0b0b;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  padding: 0 $page-padding;
+}
+
+.side {
+  width: 160rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.icon {
+  font-size: 44rpx;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: $font-weight-semibold;
+  color: #ffffff;
+  @include text-ellipsis;
+  max-width: 420rpx;
+  text-align: center;
+}
+
+.rightText {
+  font-size: 28rpx;
+  font-weight: $font-weight-medium;
+  color: #8cb3ff;
+}
+

@@ -1,0 +1,217 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+}
+
+.headerFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: #0b0b0b;
+}
+
+.headerBar {
+  height: 88rpx;
+  padding: 0 $page-padding;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  width: 180rpx;
+}
+
+.headerIcon {
+  font-size: 42rpx;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.headerTitle {
+  font-size: 30rpx;
+  font-weight: $font-weight-semibold;
+  color: #ffffff;
+  @include text-ellipsis;
+  max-width: 360rpx;
+  text-align: center;
+}
+
+.headerRight {
+  width: 180rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menuIcon {
+  font-size: 42rpx;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.headerPlaceholder {
+  height: calc(88rpx + 0px);
+}
+
+.content {
+  padding: $spacing-lg 0 calc($spacing-xl + 140rpx);
+}
+
+.formCard {
+  background: $color-bg-card;
+  box-shadow: $shadow-card;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  margin: 0 $page-padding;
+}
+
+.row {
+  padding: 26rpx $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx solid $color-divider;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.labelWrap {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  width: 320rpx;
+}
+
+.required {
+  font-size: 28rpx;
+  color: $color-error;
+  line-height: 1;
+}
+
+.label {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  @include text-ellipsis;
+}
+
+.value {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+  max-width: 320rpx;
+  text-align: right;
+}
+
+.valueActive {
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.arrow {
+  font-size: 36rpx;
+  color: $color-text-tertiary;
+  margin-left: 10rpx;
+}
+
+.section {
+  margin-top: $spacing-lg;
+  padding: 0 $page-padding;
+}
+
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.expandText {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.tag {
+  padding: 0 22rpx;
+  height: 64rpx;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  border: 2rpx solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.tagActive {
+  border: none;
+  background: rgba(22, 93, 255, 0.12);
+}
+
+.tagText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.tagTextActive {
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.bottomBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx $page-padding 28rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: $shadow-float;
+}
+
+.createBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.createText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+}
+

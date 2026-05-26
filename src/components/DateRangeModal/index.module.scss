@@ -1,0 +1,122 @@
+@use '@/styles/variables.scss' as *;
+
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  background: $color-bg-card;
+  border-top-left-radius: 28rpx;
+  border-top-right-radius: 28rpx;
+  box-shadow: $shadow-popup;
+  overflow: hidden;
+}
+
+.header {
+  padding: $spacing-lg $page-padding;
+  border-bottom: 2rpx solid $color-divider;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.body {
+  padding: 28rpx 48rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.row {
+  width: 100%;
+  max-width: 620rpx;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 150rpx 1fr;
+  align-items: center;
+  column-gap: 24rpx;
+}
+
+.label {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  width: auto;
+}
+
+.pickerBox {
+  width: 100%;
+  min-width: 0;
+  max-width: 320rpx;
+  justify-self: end;
+  height: 80rpx;
+  border-radius: $radius-button;
+  border: 2rpx solid $color-border;
+  background: $color-bg-page;
+  padding: 0 $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pickerText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.hint {
+  font-size: $font-size-sm;
+  color: $color-error;
+}
+
+.footer {
+  padding: $spacing-lg $page-padding $spacing-xl;
+  display: flex;
+  gap: $spacing-md;
+}
+
+.btn {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  border: 2rpx solid $color-border;
+  background: $color-bg-card;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btnPrimary {
+  border: none;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+}
+
+.btnDisabled {
+  background: $color-bg-hover;
+}
+
+.btnText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.btnTextPrimary {
+  color: $color-text-white;
+}
