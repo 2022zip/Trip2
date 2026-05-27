@@ -35,6 +35,7 @@ npm run build
 - 构建产物目录：`dist`
 - 适合部署到 Vercel、Netlify、静态服务器或 GitHub Pages
 - 浏览器页面标题已调整为 `Triplist H5`
+- 已内置 GitHub Pages 工作流，推送 `main` 后可自动发布
 
 ## 技术栈
 
