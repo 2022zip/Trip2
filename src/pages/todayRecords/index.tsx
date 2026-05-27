@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
-import { View, Text } from '@tarojs/components';
-import Taro from '@tarojs/taro';
 import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
 import CustomNavBar from '@/components/CustomNavBar';
 import { getAllRecordsByEmployeeId, useAppStore } from '@/store/useAppStore';
 import styles from './index.module.scss';
 
 const TodayRecordsPage: React.FC = () => {
+  const navigate = useNavigate();
   const { currentUserId, trips, dynamicRecords } = useAppStore((s) => ({
     currentUserId: s.currentUserId,
     trips: s.trips,
@@ -22,26 +22,26 @@ const TodayRecordsPage: React.FC = () => {
   }, [currentUserId, dynamicRecords, today, trips]);
 
   return (
-    <View className={styles.page}>
-      <CustomNavBar title="今日记录" leftType="back" onLeftClick={() => Taro.navigateBack()} rightText="返回" onRightClick={() => Taro.navigateBack()} />
-      <View className={styles.content}>
-        <Text className={styles.tip}>仅显示今日数据，不支持查看前天等历史日期</Text>
+    <div className={styles.page}>
+      <CustomNavBar title="今日记录" leftType="back" onLeftClick={() => navigate(-1)} rightText="返回" onRightClick={() => navigate(-1)} />
+      <div className={styles.content}>
+        <span className={styles.tip}>仅显示今日数据，不支持查看前天等历史日期</span>
         {list.length === 0 ? (
-          <Text className={styles.empty}>今日暂无外勤记录</Text>
+          <span className={styles.empty}>今日暂无外勤记录</span>
         ) : (
-          <View className={styles.card}>
+          <div className={styles.card}>
             {list.map((r, idx) => (
-              <View key={r.id} className={styles.item}>
-                <Text className={styles.line1}>
+              <div key={r.id} className={styles.item}>
+                <span className={styles.line1}>
                   {idx + 1}. {r.type}—{r.time}
-                </Text>
-                <Text className={styles.line2}>地址：{r.address}</Text>
-              </View>
+                </span>
+                <span className={styles.line2}>地址：{r.address}</span>
+              </div>
             ))}
-          </View>
+          </div>
         )}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 };
 

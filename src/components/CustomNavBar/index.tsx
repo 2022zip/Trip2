@@ -1,6 +1,4 @@
-import React, { useMemo } from 'react';
-import { View, Text } from '@tarojs/components';
-import Taro from '@tarojs/taro';
+import React from 'react';
 import classnames from 'classnames';
 import styles from './index.module.scss';
 
@@ -21,43 +19,35 @@ const CustomNavBar: React.FC<CustomNavBarProps> = ({
   rightText,
   onRightClick
 }) => {
-  const info = useMemo(() => {
-    try {
-      return Taro.getSystemInfoSync();
-    } catch (e) {
-      console.error('[CustomNavBar] getSystemInfoSync failed', e);
-      return { statusBarHeight: 0 };
-    }
-  }, []);
-
-  const statusBarHeight = info.statusBarHeight || 0;
-  const barHeight = 44;
-  const totalHeight = statusBarHeight + barHeight;
-
   return (
-    <View className={styles.root}>
-      <View className={styles.fixed} style={{ paddingTop: `${statusBarHeight}px` }}>
-        <View className={styles.bar} style={{ height: `${barHeight}px` }}>
-          <View
+    <div className={styles.root}>
+      <div className={styles.fixed}>
+        <div className={styles.bar}>
+          <button
+            type="button"
             className={classnames(styles.side, styles.left)}
             onClick={leftType === 'none' ? undefined : onLeftClick}
+            disabled={leftType === 'none'}
           >
             {leftType !== 'none' && (
-              <Text className={styles.icon}>{leftType === 'close' ? '×' : '‹'}</Text>
+              <span className={styles.icon}>{leftType === 'close' ? '×' : '‹'}</span>
             )}
-          </View>
-          <View className={styles.center}>
-            <Text className={styles.title}>{title}</Text>
-          </View>
-          <View className={classnames(styles.side, styles.right)} onClick={rightText ? onRightClick : undefined}>
-            {rightText && <Text className={styles.rightText}>{rightText}</Text>}
-          </View>
-        </View>
-      </View>
-      <View style={{ height: `${totalHeight}px` }} />
-    </View>
+          </button>
+          <div className={styles.center}>
+            <span className={styles.title}>{title}</span>
+          </div>
+          <button
+            type="button"
+            className={classnames(styles.side, styles.right)}
+            onClick={rightText ? onRightClick : undefined}
+            disabled={!rightText}
+          >
+            {rightText && <span className={styles.rightText}>{rightText}</span>}
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default CustomNavBar;
-

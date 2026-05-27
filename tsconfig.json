@@ -1,28 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "noImplicitAny": false,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
-    "outDir": "lib",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "sourceMap": true,
-    "baseUrl": "",
-    "rootDir": "",
-    "jsx": "react-jsx",
-    "allowJs": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
     "typeRoots": ["node_modules/@types"],
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "types"],
+  "include": ["src", "types", "vite.config.ts"],
   "compileOnSave": false
 }

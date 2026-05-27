@@ -5,25 +5,28 @@
 }
 
 .fixed {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
   background: #0b0b0b;
+  padding-top: env(safe-area-inset-top);
 }
 
 .bar {
   display: flex;
   align-items: center;
+  min-height: 56px;
   padding: 0 $page-padding;
 }
 
 .side {
-  width: 160rpx;
-  height: 100%;
+  width: 80px;
+  min-height: 56px;
   display: flex;
   align-items: center;
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
 .left {
@@ -35,7 +38,7 @@
 }
 
 .icon {
-  font-size: 44rpx;
+  font-size: 22px;
   color: #ffffff;
   line-height: 1;
 }
@@ -48,17 +51,16 @@
 }
 
 .title {
-  font-size: 30rpx;
+  font-size: 15px;
   font-weight: $font-weight-semibold;
   color: #ffffff;
   @include text-ellipsis;
-  max-width: 420rpx;
+  max-width: 210px;
   text-align: center;
 }
 
 .rightText {
-  font-size: 28rpx;
+  font-size: 14px;
   font-weight: $font-weight-medium;
   color: #8cb3ff;
 }
-

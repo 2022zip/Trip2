@@ -34,14 +34,14 @@
   display: flex;
   background: $color-bg-page;
   border-radius: $radius-button;
-  padding: 8rpx;
-  gap: 8rpx;
+  padding: 4px;
+  gap: 4px;
 }
 
 .segBtn {
   @include button-reset;
   flex: 1;
-  height: 76rpx;
+  height: 38px;
   border-radius: $radius-button;
   background: transparent;
   transition: all $transition-base;
@@ -70,7 +70,7 @@
   margin-top: $spacing-lg;
   display: flex;
   flex-direction: column;
-  gap: 10rpx;
+  gap: 5px;
 }
 
 .metaLine {

@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { View, Text, Button } from '@tarojs/components';
-import Taro from '@tarojs/taro';
 import dayjs from 'dayjs';
 import classnames from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import { showToast } from '@/utils/toast';
 import styles from './index.module.scss';
 
 const ReportCreatePage: React.FC = () => {
+  const navigate = useNavigate();
   const today = useMemo(() => dayjs().format('YYYY/MM/DD'), []);
   const [contactWay, setContactWay] = useState('拜访');
   const [progress, setProgress] = useState('重要客户');
@@ -24,168 +25,169 @@ const ReportCreatePage: React.FC = () => {
   const visibleProgress = expand ? progressList : progressList.slice(0, 4);
 
   const goBack = () => {
-    try {
-      Taro.navigateBack();
-    } catch (e) {
-      console.error('[ReportCreate] navigateBack failed', e);
-      Taro.switchTab({ url: '/pages/home/index' });
-    }
+    if (window.history.length > 1) navigate(-1);
+    else navigate('/home');
   };
 
   return (
-    <View className={styles.page}>
-      <View className={styles.headerFixed}>
-        <View className={styles.headerBar}>
-          <View className={styles.headerLeft}>
-            <Text className={styles.headerIcon} onClick={goBack}>
+    <div className={styles.page}>
+      <div className={styles.headerFixed}>
+        <div className={styles.headerBar}>
+          <div className={styles.headerLeft}>
+            <button type="button" className={styles.headerIcon} onClick={goBack}>
               ←
-            </Text>
-            <Text className={styles.headerIcon} onClick={goBack}>
+            </button>
+            <button type="button" className={styles.headerIcon} onClick={goBack}>
               ×
-            </Text>
-          </View>
-          <Text className={styles.headerTitle}>新增跟进记录</Text>
-          <View className={styles.headerRight}>
-            <Text className={styles.menuIcon} onClick={() => Taro.showToast({ title: '更多（原型）', icon: 'none' })}>
+            </button>
+          </div>
+          <span className={styles.headerTitle}>新增跟进记录</span>
+          <div className={styles.headerRight}>
+            <button type="button" className={styles.menuIcon} onClick={() => showToast('更多（原型）')}>
               ⋯
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View className={styles.headerPlaceholder} />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className={styles.headerPlaceholder} />
 
-      <View className={styles.content}>
-        <View className={styles.formCard}>
-          <View className={styles.row} onClick={() => Taro.showToast({ title: '选择客户（原型）', icon: 'none' })}>
-            <View className={styles.labelWrap}>
-              <Text className={styles.required}>*</Text>
-              <Text className={styles.label}>客户</Text>
-            </View>
-            <View style={{ display: 'flex', alignItems: 'center' }}>
-              <Text className={styles.value}>选择客户</Text>
-              <Text className={styles.arrow}>›</Text>
-            </View>
-          </View>
+      <div className={styles.content}>
+        <div className={styles.formCard}>
+          <button type="button" className={styles.row} onClick={() => showToast('选择客户（原型）')}>
+            <div className={styles.labelWrap}>
+              <span className={styles.required}>*</span>
+              <span className={styles.label}>客户</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className={styles.value}>选择客户</span>
+              <span className={styles.arrow}>›</span>
+            </div>
+          </button>
 
-          <View className={styles.row}>
-            <View className={styles.labelWrap}>
-              <Text className={styles.required}>*</Text>
-              <Text className={styles.label}>日期</Text>
-            </View>
-            <View style={{ display: 'flex', alignItems: 'center' }}>
-              <Text className={classnames(styles.value, styles.valueActive)}>{today}</Text>
-              <Text className={styles.arrow}>›</Text>
-            </View>
-          </View>
+          <div className={styles.row}>
+            <div className={styles.labelWrap}>
+              <span className={styles.required}>*</span>
+              <span className={styles.label}>日期</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className={classnames(styles.value, styles.valueActive)}>{today}</span>
+              <span className={styles.arrow}>›</span>
+            </div>
+          </div>
 
-          <View
+          <button
+            type="button"
             className={styles.row}
-            onClick={() => Taro.showToast({ title: '设置下次联络日（原型）', icon: 'none' })}
+            onClick={() => showToast('设置下次联络日（原型）')}
           >
-            <View className={styles.labelWrap}>
-              <Text className={styles.label}>下次联络日</Text>
-            </View>
-            <View style={{ display: 'flex', alignItems: 'center' }}>
-              <Text className={styles.value}>日期(选择后将自动在企微创建日程)</Text>
-              <Text className={styles.arrow}>›</Text>
-            </View>
-          </View>
+            <div className={styles.labelWrap}>
+              <span className={styles.label}>下次联络日</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className={styles.value}>日期(选择后将自动在企微创建日程)</span>
+              <span className={styles.arrow}>›</span>
+            </div>
+          </button>
 
-          <View
+          <button
+            type="button"
             className={styles.row}
-            onClick={() => Taro.showToast({ title: '选择最近联络人（原型）', icon: 'none' })}
+            onClick={() => showToast('选择最近联络人（原型）')}
           >
-            <View className={styles.labelWrap}>
-              <Text className={styles.required}>*</Text>
-              <Text className={styles.label}>最近联络人</Text>
-            </View>
-            <View style={{ display: 'flex', alignItems: 'center' }}>
-              <Text className={styles.value}>请先选择客户</Text>
-              <Text className={styles.arrow}>›</Text>
-            </View>
-          </View>
+            <div className={styles.labelWrap}>
+              <span className={styles.required}>*</span>
+              <span className={styles.label}>最近联络人</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className={styles.value}>请先选择客户</span>
+              <span className={styles.arrow}>›</span>
+            </div>
+          </button>
 
-          <View
+          <button
+            type="button"
             className={styles.row}
-            onClick={() => Taro.showToast({ title: '填写工作内容（原型）', icon: 'none' })}
+            onClick={() => showToast('填写工作内容（原型）')}
           >
-            <View className={styles.labelWrap}>
-              <Text className={styles.required}>*</Text>
-              <Text className={styles.label}>工作内容(痛点/需求描述)</Text>
-            </View>
-            <View style={{ display: 'flex', alignItems: 'center' }}>
-              <Text className={styles.value}>请先选择联络人</Text>
-              <Text className={styles.arrow}>›</Text>
-            </View>
-          </View>
-        </View>
+            <div className={styles.labelWrap}>
+              <span className={styles.required}>*</span>
+              <span className={styles.label}>工作内容(痛点/需求描述)</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className={styles.value}>请先选择联络人</span>
+              <span className={styles.arrow}>›</span>
+            </div>
+          </button>
+        </div>
 
-        <View className={styles.section}>
-          <View className={styles.sectionTitleRow}>
-            <View className={styles.labelWrap}>
-              <Text className={styles.required}>*</Text>
-              <Text className={styles.sectionTitle}>客情方式</Text>
-            </View>
-          </View>
-          <View className={styles.tags}>
+        <div className={styles.section}>
+          <div className={styles.sectionTitleRow}>
+            <div className={styles.labelWrap}>
+              <span className={styles.required}>*</span>
+              <span className={styles.sectionTitle}>客情方式</span>
+            </div>
+          </div>
+          <div className={styles.tags}>
             {contactWays.map((t) => {
               const active = t === contactWay;
               return (
-                <View
+                <button
+                  type="button"
                   key={t}
                   className={classnames(styles.tag, active && styles.tagActive)}
                   onClick={() => setContactWay(t)}
                 >
-                  <Text className={classnames(styles.tagText, active && styles.tagTextActive)}>{t}</Text>
-                </View>
+                  <span className={classnames(styles.tagText, active && styles.tagTextActive)}>{t}</span>
+                </button>
               );
             })}
-          </View>
-        </View>
+          </div>
+        </div>
 
-        <View className={styles.section}>
-          <View className={styles.sectionTitleRow}>
-            <View className={styles.labelWrap}>
-              <Text className={styles.required}>*</Text>
-              <Text className={styles.sectionTitle}>销售进度</Text>
-            </View>
-            <Text className={styles.expandText} onClick={() => setExpand((v) => !v)}>
+        <div className={styles.section}>
+          <div className={styles.sectionTitleRow}>
+            <div className={styles.labelWrap}>
+              <span className={styles.required}>*</span>
+              <span className={styles.sectionTitle}>销售进度</span>
+            </div>
+            <button type="button" className={styles.expandText} onClick={() => setExpand((v) => !v)}>
               {expand ? '收起' : '展开'}
-            </Text>
-          </View>
-          <View className={styles.tags}>
+            </button>
+          </div>
+          <div className={styles.tags}>
             {visibleProgress.map((t) => {
               const active = t === progress;
               return (
-                <View
+                <button
+                  type="button"
                   key={t}
                   className={classnames(styles.tag, active && styles.tagActive)}
                   onClick={() => setProgress(t)}
                 >
-                  <Text className={classnames(styles.tagText, active && styles.tagTextActive)}>{t}</Text>
-                </View>
+                  <span className={classnames(styles.tagText, active && styles.tagTextActive)}>{t}</span>
+                </button>
               );
             })}
-          </View>
-        </View>
-      </View>
+          </div>
+        </div>
+      </div>
 
-      <View className={styles.bottomBar}>
-        <Button
+      <div className={styles.bottomBar}>
+        <button
+          type="button"
           className={styles.createBtn}
           onClick={() => {
-            Taro.showToast({ title: '创建成功（原型）', icon: 'success' });
+            showToast('创建成功（原型）', 'success');
             setTimeout(() => {
-              Taro.switchTab({ url: '/pages/home/index' });
+              navigate('/home');
             }, 600);
           }}
         >
-          <Text className={styles.createText}>创建</Text>
-        </Button>
-      </View>
-    </View>
+          <span className={styles.createText}>创建</span>
+        </button>
+      </div>
+    </div>
   );
 };
 
 export default ReportCreatePage;
-

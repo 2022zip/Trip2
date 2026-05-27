@@ -6,46 +6,46 @@
 // 全局 SCSS 变量（建议直接复用，如有特殊设计需求可按需修改）
 // ============================================
 
-// 屏幕适配（设计稿基准 750rpx）
-$screen-width: 750rpx;
-$page-padding: 32rpx; // 页面左右安全边距
-$page-spacing: 32rpx;
-$max-content-width: 686rpx; // 750 - 32*2，内容最大宽度
+// 屏幕适配（设计稿基准 375px）
+$screen-width: 375px;
+$page-padding: 16px; // 页面左右安全边距
+$page-spacing: 16px;
+$max-content-width: 343px; // 750 - 32*2，内容最大宽度
 
 // 间距（8px 网格系统）
-$spacing-xs: 8rpx;
-$spacing-sm: 16rpx;
-$spacing-md: 24rpx;
-$spacing-lg: 32rpx;
-$spacing-xl: 48rpx;
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
 
 // 圆角（语义化）
-$radius-xs: 4rpx; // 小元素：标签、徽章
-$radius-sm: 8rpx; // 卡片内小元素
-$radius-md: 12rpx; // 常规卡片
-$radius-lg: 16rpx; // 大卡片
-$radius-xl: 20rpx; // 特大卡片
-$radius-button: 48rpx; // 按钮专用（全圆角，符合主流小程序）
-$radius-round: 999rpx; // 完全圆形
+$radius-xs: 2px; // 小元素：标签、徽章
+$radius-sm: 4px; // 卡片内小元素
+$radius-md: 6px; // 常规卡片
+$radius-lg: 8px; // 大卡片
+$radius-xl: 10px; // 特大卡片
+$radius-button: 24px; // 按钮专用（全圆角，符合主流小程序）
+$radius-round: 999px; // 完全圆形
 
 // 按钮高度（新增）
-$button-height-sm: 64rpx; // 小按钮（次要操作）
-$button-height-md: 80rpx; // 常规按钮（主流标准）
-$button-height-lg: 96rpx; // 大按钮（主要操作、底部固定）
+$button-height-sm: 32px; // 小按钮（次要操作）
+$button-height-md: 40px; // 常规按钮（主流标准）
+$button-height-lg: 48px; // 大按钮（主要操作、底部固定）
 
 // 阴影（语义化）
-$shadow-card: 0 2rpx 12rpx rgba(0, 0, 0, 0.08); // 卡片阴影
-$shadow-card-hover: 0 4rpx 20rpx rgba(0, 0, 0, 0.12); // 卡片悬浮
-$shadow-float: 0 4rpx 16rpx rgba(0, 0, 0, 0.1); // 浮层阴影（如筛选栏、底部操作栏）
-$shadow-popup: 0 8rpx 32rpx rgba(0, 0, 0, 0.15); // 弹窗阴影
+$shadow-card: 0 1px 6px rgba(0, 0, 0, 0.08); // 卡片阴影
+$shadow-card-hover: 0 2px 10px rgba(0, 0, 0, 0.12); // 卡片悬浮
+$shadow-float: 0 2px 8px rgba(0, 0, 0, 0.1); // 浮层阴影（如筛选栏、底部操作栏）
+$shadow-popup: 0 4px 16px rgba(0, 0, 0, 0.15); // 弹窗阴影
 
 // 字体大小
-$font-size-xs: 22rpx;
-$font-size-sm: 24rpx;
-$font-size-md: 28rpx;
-$font-size-lg: 32rpx;
-$font-size-xl: 36rpx;
-$font-size-xxl: 40rpx;
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-xxl: 20px;
 
 // 行高
 $line-height-tight: 1.3;

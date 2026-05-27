@@ -6,16 +6,15 @@
 }
 
 .headerFixed {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 1200;
   background: #0b0b0b;
+  padding-top: env(safe-area-inset-top);
 }
 
 .headerBar {
-  height: 88rpx;
+  min-height: 44px;
   padding: 0 $page-padding;
   display: flex;
   align-items: center;
@@ -25,43 +24,49 @@
 .headerLeft {
   display: flex;
   align-items: center;
-  gap: 24rpx;
-  width: 180rpx;
+  gap: 12px;
+  width: 90px;
 }
 
 .headerIcon {
-  font-size: 42rpx;
+  @include button-reset;
+  font-size: 21px;
   line-height: 1;
+  border: none;
+  background: transparent;
   color: #ffffff;
 }
 
 .headerTitle {
-  font-size: 30rpx;
+  font-size: 15px;
   font-weight: $font-weight-semibold;
   color: #ffffff;
   @include text-ellipsis;
-  max-width: 360rpx;
+  max-width: 180px;
   text-align: center;
 }
 
 .headerRight {
-  width: 180rpx;
+  width: 90px;
   display: flex;
   justify-content: flex-end;
 }
 
 .menuIcon {
-  font-size: 42rpx;
+  @include button-reset;
+  font-size: 21px;
+  border: none;
+  background: transparent;
   color: #ffffff;
   line-height: 1;
 }
 
 .headerPlaceholder {
-  height: calc(88rpx + 0px);
+  display: none;
 }
 
 .content {
-  padding: $spacing-lg 0 calc($spacing-xl + 140rpx);
+  padding: $spacing-lg 0 calc($spacing-xl + 70px);
 }
 
 .formCard {
@@ -73,12 +78,13 @@
 }
 
 .row {
-  padding: 26rpx $spacing-lg;
+  @include button-reset;
+  width: 100%;
+  padding: 13px $spacing-lg;
   display: flex;
+  border: none;
   align-items: center;
   justify-content: space-between;
-  border-top: 2rpx solid $color-divider;
-
   &:first-child {
     border-top: none;
   }
@@ -87,12 +93,12 @@
 .labelWrap {
   display: flex;
   align-items: center;
-  gap: 10rpx;
-  width: 320rpx;
+  gap: 5px;
+  width: 160px;
 }
 
 .required {
-  font-size: 28rpx;
+  font-size: 14px;
   color: $color-error;
   line-height: 1;
 }
@@ -107,7 +113,7 @@
   font-size: $font-size-md;
   color: $color-text-tertiary;
   @include text-ellipsis;
-  max-width: 320rpx;
+  max-width: 160px;
   text-align: right;
 }
 
@@ -117,9 +123,9 @@
 }
 
 .arrow {
-  font-size: 36rpx;
+  font-size: 18px;
   color: $color-text-tertiary;
-  margin-left: 10rpx;
+  margin-left: 5px;
 }
 
 .section {
@@ -141,7 +147,10 @@
 }
 
 .expandText {
+  @include button-reset;
   font-size: $font-size-sm;
+  border: none;
+  background: transparent;
   color: $color-primary;
   font-weight: $font-weight-medium;
 }
@@ -149,15 +158,16 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 16rpx;
+  gap: 8px;
 }
 
 .tag {
-  padding: 0 22rpx;
-  height: 64rpx;
+  @include button-reset;
+  padding: 0 11px;
+  height: 32px;
   border-radius: $radius-button;
   background: $color-bg-card;
-  border: 2rpx solid $color-border;
+  border: 1px solid $color-border;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -186,11 +196,9 @@
 }
 
 .bottomBar {
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: sticky;
   bottom: 0;
-  padding: 20rpx $page-padding 28rpx;
+  padding: 10px $page-padding calc(14px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.96);
   box-shadow: $shadow-float;
 }
@@ -214,4 +222,3 @@
   font-weight: $font-weight-semibold;
   color: $color-text-white;
 }
-

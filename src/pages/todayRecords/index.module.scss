@@ -24,7 +24,7 @@
 
 .item {
   padding: $spacing-lg;
-  border-top: 2rpx solid $color-divider;
+  border-top: 1px solid $color-divider;
 
   &:first-child {
     border-top: none;
@@ -35,7 +35,7 @@
   font-size: $font-size-md;
   font-weight: $font-weight-medium;
   color: $color-text-primary;
-  margin-bottom: 8rpx;
+  margin-bottom: 4px;
   @include text-ellipsis-multi(2);
 }
 
@@ -46,7 +46,7 @@
 }
 
 .empty {
-  padding: 160rpx 0;
+  padding: 80px 0;
   text-align: center;
   color: $color-text-tertiary;
   font-size: $font-size-md;

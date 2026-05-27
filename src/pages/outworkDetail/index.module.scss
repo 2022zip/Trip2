@@ -13,12 +13,12 @@
   background: $color-bg-card;
   border-radius: $radius-lg;
   box-shadow: $shadow-card;
-  padding: 24rpx 28rpx;
+  padding: 12px 14px;
   margin-bottom: $spacing-lg;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16rpx;
+  gap: 8px;
 }
 
 .summaryMain {
@@ -26,12 +26,12 @@
   min-width: 0;
   display: flex;
   align-items: baseline;
-  gap: 12rpx;
+  gap: 6px;
 }
 
 .summaryTitle {
   flex-shrink: 0;
-  font-size: 34rpx;
+  font-size: 17px;
   font-weight: $font-weight-bold;
   color: $color-text-primary;
   line-height: 1.25;
@@ -40,14 +40,17 @@
 .rangeText {
   flex: 1;
   min-width: 0;
-  font-size: 24rpx;
+  font-size: 12px;
   color: $color-text-secondary;
   white-space: nowrap;
 }
 
 .filterBtn {
+  @include button-reset;
   flex-shrink: 0;
-  font-size: 28rpx;
+  font-size: 14px;
+  border: none;
+  background: transparent;
   color: $color-primary;
   font-weight: $font-weight-semibold;
 }
@@ -63,7 +66,7 @@
 .groupHeader {
   padding: $spacing-md $spacing-lg;
   background: $color-bg-page;
-  border-bottom: 2rpx solid $color-divider;
+  border-bottom: 1px solid $color-divider;
 }
 
 .groupDate {
@@ -74,7 +77,7 @@
 
 .item {
   padding: $spacing-lg;
-  border-top: 2rpx solid $color-divider;
+  border-top: 1px solid $color-divider;
 
   &:first-child {
     border-top: none;
@@ -85,7 +88,7 @@
   font-size: $font-size-md;
   font-weight: $font-weight-medium;
   color: $color-text-primary;
-  margin-bottom: 8rpx;
+  margin-bottom: 4px;
   @include text-ellipsis-multi(2);
 }
 
@@ -96,7 +99,7 @@
 }
 
 .empty {
-  padding: 160rpx 0;
+  padding: 80px 0;
   text-align: center;
   color: $color-text-tertiary;
   font-size: $font-size-md;

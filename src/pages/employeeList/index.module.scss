@@ -17,11 +17,14 @@
 }
 
 .row {
+  @include button-reset;
+  width: 100%;
   padding: $spacing-lg;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 2rpx solid $color-divider;
+  border: none;
+  border-top: 1px solid $color-divider;
 
   &:first-child {
     border-top: none;
@@ -39,8 +42,7 @@
 }
 
 .arrow {
-  font-size: 40rpx;
+  font-size: 20px;
   color: $color-text-tertiary;
   line-height: 1;
 }
-

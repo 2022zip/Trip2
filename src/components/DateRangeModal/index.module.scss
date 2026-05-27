@@ -15,15 +15,15 @@
 .sheet {
   width: 100%;
   background: $color-bg-card;
-  border-top-left-radius: 28rpx;
-  border-top-right-radius: 28rpx;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
   box-shadow: $shadow-popup;
   overflow: hidden;
 }
 
 .header {
   padding: $spacing-lg $page-padding;
-  border-bottom: 2rpx solid $color-divider;
+  border-bottom: 1px solid $color-divider;
 }
 
 .title {
@@ -33,20 +33,20 @@
 }
 
 .body {
-  padding: 28rpx 48rpx 16rpx;
+  padding: 14px 24px 8px;
   display: flex;
   flex-direction: column;
-  gap: 20rpx;
+  gap: 10px;
 }
 
 .row {
   width: 100%;
-  max-width: 620rpx;
+  max-width: 310px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 150rpx 1fr;
+  grid-template-columns: 75px 1fr;
   align-items: center;
-  column-gap: 24rpx;
+  column-gap: 12px;
 }
 
 .label {
@@ -58,16 +58,24 @@
 .pickerBox {
   width: 100%;
   min-width: 0;
-  max-width: 320rpx;
+  max-width: 160px;
   justify-self: end;
-  height: 80rpx;
+  position: relative;
+  height: 40px;
   border-radius: $radius-button;
-  border: 2rpx solid $color-border;
+  border: 1px solid $color-border;
   background: $color-bg-page;
   padding: 0 $spacing-lg;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .pickerText {
@@ -77,8 +85,10 @@
 }
 
 .hint {
+  display: block;
   font-size: $font-size-sm;
   color: $color-error;
+  text-align: center;
 }
 
 .footer {
@@ -92,7 +102,7 @@
   flex: 1;
   height: $button-height-md;
   border-radius: $radius-button;
-  border: 2rpx solid $color-border;
+  border: 1px solid $color-border;
   background: $color-bg-card;
   transition: all $transition-base;
 

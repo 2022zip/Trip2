@@ -1,0 +1,80 @@
+@use '@/styles/variables.scss' as *;
+
+.viewport {
+  min-height: 100vh;
+  padding: 20px 12px;
+  background:
+    radial-gradient(circle at top, rgba(22, 93, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, #eef3ff 0%, #f5f7fb 100%);
+}
+
+.device {
+  position: relative;
+  width: min(100%, 430px);
+  height: min(100vh - 40px, 860px);
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 38px;
+  background: linear-gradient(180deg, #2d2a3a 0%, #14131a 100%);
+  box-shadow:
+    0 16px 48px rgba(30, 41, 59, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #f5f7fb;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  z-index: 20;
+  width: 140px;
+  height: 22px;
+  transform: translateX(-50%);
+  border-radius: 0 0 18px 18px;
+  background: #080808;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  background: #f5f7fb;
+}
+
+.contentWithTab {
+  padding-bottom: calc(78px + env(safe-area-inset-bottom));
+}
+
+.tabBar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 8px 16px calc(8px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: $color-text-secondary;
+  font-size: 15px;
+  font-weight: $font-weight-medium;
+  padding: 10px 0;
+}
+
+.tabActive {
+  color: $color-primary;
+}

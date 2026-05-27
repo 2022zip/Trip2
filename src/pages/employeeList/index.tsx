@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import { View, Text } from '@tarojs/components';
-import Taro from '@tarojs/taro';
+import { useNavigate } from 'react-router-dom';
 import CustomNavBar from '@/components/CustomNavBar';
 import { useAppStore } from '@/store/useAppStore';
 import styles from './index.module.scss';
 
 const EmployeeListPage: React.FC = () => {
+  const navigate = useNavigate();
   const { employees } = useAppStore((s) => ({
     employees: s.employees
   }));
@@ -13,23 +13,24 @@ const EmployeeListPage: React.FC = () => {
   const list = useMemo(() => employees, [employees]);
 
   return (
-    <View className={styles.page}>
-      <CustomNavBar title="员工名单" leftType="back" onLeftClick={() => Taro.navigateBack()} rightText="返回" onRightClick={() => Taro.navigateBack()} />
-      <View className={styles.content}>
-        <View className={styles.card}>
+    <div className={styles.page}>
+      <CustomNavBar title="员工名单" leftType="back" onLeftClick={() => navigate(-1)} rightText="返回" onRightClick={() => navigate(-1)} />
+      <div className={styles.content}>
+        <div className={styles.card}>
           {list.map((e) => (
-            <View
+            <button
+              type="button"
               key={e.id}
               className={styles.row}
-              onClick={() => Taro.navigateTo({ url: `/pages/outworkDetail/index?employeeId=${e.id}` })}
+              onClick={() => navigate(`/outwork-detail/${e.id}`)}
             >
-              <Text className={styles.name}>{e.name}</Text>
-              <Text className={styles.arrow}>›</Text>
-            </View>
+              <span className={styles.name}>{e.name}</span>
+              <span className={styles.arrow}>›</span>
+            </button>
           ))}
-        </View>
-      </View>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 };
 

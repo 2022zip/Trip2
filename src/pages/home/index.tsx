@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, Button } from '@tarojs/components';
-import Taro from '@tarojs/taro';
 import dayjs from 'dayjs';
 import classnames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import CustomNavBar from '@/components/CustomNavBar';
 import { getEmployeeById, useAppStore } from '@/store/useAppStore';
+import { showToast } from '@/utils/toast';
 import styles from './index.module.scss';
 
 const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const { currentUserId, employees, role, addCheckIn } = useAppStore((s) => ({
     currentUserId: s.currentUserId,
     employees: s.employees,
@@ -36,48 +37,50 @@ const HomePage: React.FC = () => {
   const roleLabel = role === 'manager' ? 'Manager' : 'Employee';
 
   return (
-    <View className={styles.page}>
-      <CustomNavBar title="外勤打卡" leftType="close" onLeftClick={() => Taro.showToast({ title: '原型演示', icon: 'none' })} />
-      <View className={styles.content}>
-        <View className={styles.userRow}>
-          <View className={styles.userTopRow}>
-            <Text className={styles.roleText}>{roleLabel}</Text>
-          </View>
-          <Text className={styles.userName}>
+    <div className={styles.page}>
+      <CustomNavBar title="外勤打卡" leftType="close" onLeftClick={() => showToast('原型演示')} />
+      <div className={styles.content}>
+        <div className={styles.userRow}>
+          <div className={styles.userTopRow}>
+            <span className={styles.roleText}>{roleLabel}</span>
+          </div>
+          <span className={styles.userName}>
             {user?.name || '—'}，{greeting}
-          </Text>
-        </View>
+          </span>
+        </div>
 
-        <View className={styles.actions}>
-          <Button className={styles.actionBtn} onClick={() => Taro.navigateTo({ url: '/pages/todayRecords/index' })}>
-            <Text className={styles.actionText}>查看今日记录</Text>
-          </Button>
-          <Button
+        <div className={styles.actions}>
+          <button type="button" className={styles.actionBtn} onClick={() => navigate('/today-records')}>
+            <span className={styles.actionText}>查看今日记录</span>
+          </button>
+          <button
+            type="button"
             className={classnames(styles.actionBtn, styles.actionPrimary)}
-            onClick={() => Taro.navigateTo({ url: '/pages/reportCreate/index' })}
+            onClick={() => navigate('/report-create')}
           >
-            <Text className={classnames(styles.actionText, styles.actionTextPrimary)}>写日报</Text>
-          </Button>
-        </View>
+            <span className={classnames(styles.actionText, styles.actionTextPrimary)}>写日报</span>
+          </button>
+        </div>
 
-        <View className={styles.clockWrap}>
-          <View
+        <div className={styles.clockWrap}>
+          <button
+            type="button"
             className={styles.clockCircle}
             onClick={() => {
               addCheckIn({ employeeId: currentUserId });
-              Taro.showToast({ title: '打卡成功（原型）', icon: 'success' });
+              showToast('打卡成功（原型）', 'success');
             }}
           >
-            <Text className={styles.clockTitle}>外勤打卡</Text>
-            <Text className={styles.clockTime}>{timeText}</Text>
-          </View>
-        </View>
+            <span className={styles.clockTitle}>外勤打卡</span>
+            <span className={styles.clockTime}>{timeText}</span>
+          </button>
+        </div>
 
-        <View className={styles.photoArea} onClick={() => Taro.showToast({ title: '拍照区（原型）', icon: 'none' })}>
-          <Text className={styles.photoText}>拍照区</Text>
-        </View>
-      </View>
-    </View>
+        <button type="button" className={styles.photoArea} onClick={() => showToast('拍照区（原型）')}>
+          <span className={styles.photoText}>拍照区</span>
+        </button>
+      </div>
+    </div>
   );
 };
 
